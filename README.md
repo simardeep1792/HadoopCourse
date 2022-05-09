@@ -451,6 +451,8 @@
 
             # Reduce to (movieID, (sumOfRatings, totalRatings))
             ratingTotalsAndCount = movieRatings.reduceByKey(lambda movie1, movie2: ( mov                                                                     ie1[0] + movie2[0], movie1[1] + movie2[1] ) )
+            
+            #https://sparkbyexamples.com/pyspark/pyspark-reducebykey-usage-with-examples/ Use this link to understand in details
 
             # Map to (rating, averageRating)
             averageRatings = ratingTotalsAndCount.mapValues(lambda totalAndCount : total                                                                     AndCount[0] / totalAndCount[1])
