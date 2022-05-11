@@ -674,6 +674,17 @@
 
 * SQL databases generally work with a `Schema on Write` approach. That means that we establish our table layout before inserting any data into the database. On the other hand, Hive works with a `Schema on Read` layout, where the data is not stored in a `Schema` fashion, but whenever we read it then we convert it to a `Schema`
     * Data is saved without actual structure
+
+*	Load Data --- Hive takes ownership of the data.
+*	Load Data Local – Hive saves the copy of the data and keep the original untouched 
+*	Managed Tables – Hive is taking the ownership of data. If you drop the data; the data is gone.
+*	External Tables- Create the external table with location saves the data at some location and keep the original table is untouched.
+
+Partitions
+•	Can Chain partitions.
+•	Partitions are more like subfolders and store data respective to shards
+•	You can store your data in partitioned subdirectories
+
 * ![hive-metada](./images/hive-metadata.PNG)
     * Without using Hive view in Ambari, those would be the steps needed to create the "table".
 
@@ -686,6 +697,10 @@
 
 * How to integrate an actual MySQL database to your Hadoop cluster.
     * We will use Scoop to get MySQL data
+*	It is made to work with large datasets.
+*	When you export data from database into HADOOP.
+*	Kick off the mappers
+*	Mappers will communicate into HDFS and populate the data into csv
 
 * ![sqoop](./images/sqoop.PNG)
 * ![sqoop2](./images/sqoop2.PNG)
