@@ -740,6 +740,9 @@ Partitions
             *  Just like sharding or partitioning 
         * The sharding (balancing the keys process) is done automatically
             * It does that by doing Write Ahead Commit logs and other strategies
+            * HBase first writes data updates to a type of commit log called a Write Ahead Log (WAL). After the update is stored in the WAL, it's written to the in-memory MemStore. When the data in memory reaches its maximum capacity, it's written to disk as an HFile.
+
+
             *  HBase will copy those individual rows inside each "Region" in a bigger file inside HDFS.
         * HMaster will keep track of your data schema, where things are stores, and how is it partitioned.
             * Mastermind of HBase
